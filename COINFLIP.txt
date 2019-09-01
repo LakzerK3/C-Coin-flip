@@ -1,0 +1,58 @@
+using System;
+using System.Threading;
+namespace CoinFlip
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int heads = 0;
+            int tails = 0;
+            string choice;
+            string[] name = { "heads", "tails"};
+            Random rName = new Random();
+            Console.Write("heads or tails? ");
+            choice = Console.ReadLine();
+            int answer = 0;
+
+            
+            for (int i = 0; i < 5; i++)
+            {
+                Thread.Sleep(550);
+                string rname = name[rName.Next(0, name.Length)];
+
+                Console.WriteLine(rname);
+                if (rname == "tails")
+                {
+                    tails++;
+                   
+                }else
+                {
+                    heads++;
+                    
+                    
+                }
+            }
+            if(heads > tails)
+            {
+                answer = 1;
+            }
+            else
+            {
+                answer = 2;
+            }
+            if(answer == 1 && choice == "heads")
+
+            {
+                Console.WriteLine("You win!");
+            }
+            else if(answer == 2 && choice == "tails")
+            {
+                Console.WriteLine("You win!");
+            }else
+            {
+                Console.WriteLine("You lose!");
+            }
+        }
+    }
+}
